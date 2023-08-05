@@ -29,9 +29,7 @@ ABigDaddyDonut::ABigDaddyDonut()
 		
 	}*/
 
-	//Health
 	health = 100.0f;
-	//Damage
 	bigDaddyDamage = 10.0f;
 
 
