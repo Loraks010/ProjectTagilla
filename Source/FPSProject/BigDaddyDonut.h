@@ -7,6 +7,8 @@
 #include "Components/CapsuleComponent.h"
 #include "GeometryCollection/GeometryCollectionObject.h"
 #include "Engine/DamageEvents.h"
+#include "PhysicsEngine/BodyInstance.h"
+#include "Engine/World.h"
 #include "BigDaddyDonut.generated.h"
 
 UCLASS()
@@ -34,7 +36,7 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UPROPERTY(VisibleAnywhere)
-	UStaticMeshComponent* DonutMesh;
+	USkeletalMeshComponent* DonutMesh;
 
 	/*UPROPERTY(VisibleAnywhere)
 	UGeometryCollectionComponent *geometryCollection;*/
@@ -59,5 +61,18 @@ public:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
 
+	UFUNCTION()
+	void MoveForward(float Value);
 
+	// Handles input for moving right and left.
+	UFUNCTION()
+	void MoveRight(float Value);
+
+	// Sets jump flag when key is pressed.
+	UFUNCTION()
+	void StartJump();
+
+	// Clears jump flag when key is released.
+	UFUNCTION()
+	void StopJump();
 };

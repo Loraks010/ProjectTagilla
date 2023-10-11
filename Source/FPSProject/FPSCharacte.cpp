@@ -153,6 +153,7 @@ float AFPSCharacte::TakeDamage(float DamageAmount, FDamageEvent const& DamageEve
 	float damageCaused = FMath::Min(Super::TakeDamage(DamageAmount, DamageEvent, EventInstigator, DamageCauser), health);
 	health -= damageCaused;
 	GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, GetDebugName(this) + " damaged!");
+	//Super::LaunchCharacter(,false,false);
 
 
 	if (isDead())

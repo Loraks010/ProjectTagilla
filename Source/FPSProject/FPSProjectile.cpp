@@ -105,7 +105,7 @@ void AFPSProjectile::setProjectileDamage(float newDamage)
 void AFPSProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit)
 {
     
-    ProjectileMeshComponent->SetSimulatePhysics(true);
+    //ProjectileMeshComponent->SetSimulatePhysics(true);
     if (OtherActor != this && OtherComponent->IsSimulatingPhysics())
     {
         OtherComponent->AddImpulseAtLocation(ProjectileMovementComponent->Velocity * 100.0f, Hit.ImpactPoint);
@@ -113,7 +113,7 @@ void AFPSProjectile::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor
 
     FPointDamageEvent pointDamageEvent(projectileDamage, Hit, NormalImpulse, nullptr);
     OtherActor->TakeDamage(projectileDamage, pointDamageEvent, GetInstigatorController(),this);
-    //Destroy();
+    Destroy();
 
     
 }
